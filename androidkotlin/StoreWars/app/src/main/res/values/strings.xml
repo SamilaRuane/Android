@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StoreWars</string>
+    <string name="btn_add_to_cart"> Adicionar ao Carrinho</string>
+    <string name="action_shopping_cart"> Carrinho </string>
+    <string name="action_transaction_list"> Transações </string>
+
+</resources>
