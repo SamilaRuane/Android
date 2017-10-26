@@ -1,4 +1,4 @@
-package com.cursokotlin.storewars.repository
+package com.cursokotlin.storewars.repository.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -27,7 +27,7 @@ class TransactionSQLHelper : SQLiteOpenHelper{
     override fun onCreate(db: SQLiteDatabase?) {
 
         db?.execSQL(
-                "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,$COLUMN_OWNER_NAME TEXT NOT NULL, $COLUMN_CARD_LAST_NUMBERS INTEGER NOT NULL, $COLUMN_DATEANDTIME INTEGER NOT NULL, $COLUMN_VALUE REAL NOT NULL)" )
+                "CREATE TABLE ${TABLE_NAME} (${COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT,${COLUMN_OWNER_NAME} TEXT NOT NULL, ${COLUMN_CARD_LAST_NUMBERS} INTEGER NOT NULL, ${COLUMN_DATEANDTIME} INTEGER NOT NULL, ${COLUMN_VALUE} REAL NOT NULL)" )
 
     }
 

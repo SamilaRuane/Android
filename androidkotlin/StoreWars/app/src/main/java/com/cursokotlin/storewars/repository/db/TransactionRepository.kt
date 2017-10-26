@@ -1,4 +1,4 @@
-package com.cursokotlin.storewars.repository
+package com.cursokotlin.storewars.repository.db
 
 import com.cursokotlin.storewars.entity.Transaction
 

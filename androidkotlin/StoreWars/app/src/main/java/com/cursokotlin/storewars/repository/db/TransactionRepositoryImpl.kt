@@ -1,17 +1,14 @@
-package com.cursokotlin.storewars.repository
+package com.cursokotlin.storewars.repository.db
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
-import com.cursokotlin.storewars.entity.StarWarsItem
 import com.cursokotlin.storewars.entity.Transaction
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by samila on 15/10/17.
  */
-class TransactionRepositoryImpl (ctx:Context) : TransactionRepository{
+class TransactionRepositoryImpl (ctx:Context) : TransactionRepository {
 
     var helper : TransactionSQLHelper
     init {

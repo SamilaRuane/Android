@@ -5,6 +5,6 @@ package com.cursokotlin.storewars.infra
  */
 class EndpointConstants {
     object BASE {
-        val URL : String = "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/products.json"
+        val URL : String = "https://raw.githubusercontent.com/stone-pagamentos/desafio-mobile/master/"
     }
 }

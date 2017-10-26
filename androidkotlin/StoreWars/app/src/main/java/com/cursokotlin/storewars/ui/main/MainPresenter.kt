@@ -19,8 +19,8 @@ class MainPresenter  : MainContract.Presenter {
     }
 
 
-    override fun getAllItens(): List<StarWarsItem> {
-        return mDataManager.getAllItens()
+    override fun getAllItens() {
+       mDataManager.getAllItens()
     }
 
     override fun saveShopping(itens: List<StarWarsItem>) {

@@ -1,4 +1,4 @@
-package com.cursokotlin.storewars.repository
+package com.cursokotlin.storewars.repository.remote
 
 import com.cursokotlin.storewars.entity.StarWarsItem
 
@@ -7,6 +7,6 @@ import com.cursokotlin.storewars.entity.StarWarsItem
  */
 interface ApiHelper{
 
-    fun getAllItens(): List<StarWarsItem>
+    fun getAllItens()
 
 }

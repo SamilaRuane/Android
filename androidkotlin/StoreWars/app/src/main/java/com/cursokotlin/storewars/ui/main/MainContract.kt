@@ -9,11 +9,10 @@ interface MainContract {
 
     interface View {
 
-
     }
 
     interface Presenter {
-        fun getAllItens(): List<StarWarsItem>
+        fun getAllItens()
         fun saveShopping (itens : List <StarWarsItem>)
 
     }

@@ -1,9 +1,11 @@
 package com.cursokotlin.storewars.repository
 
 import android.content.Context
-import com.cursokotlin.storewars.business.ApiHelperImpl
 import com.cursokotlin.storewars.entity.StarWarsItem
 import com.cursokotlin.storewars.entity.Transaction
+import com.cursokotlin.storewars.repository.db.TransactionRepository
+import com.cursokotlin.storewars.repository.db.TransactionRepositoryImpl
+import com.cursokotlin.storewars.repository.remote.ApiHelperImpl
 
 /**
  * Created by samila on 15/10/17.
@@ -15,14 +17,14 @@ class DataManagerImpl  : DataManager {
      var mSharedPreferenceHelper : SharedPreferenceHelper
 
     constructor(ctx:Context){
-        mDbHelper = TransactionRepositoryImpl (ctx)
+        mDbHelper = TransactionRepositoryImpl(ctx)
         mSharedPreferenceHelper = SharedPreferencesHelperImpl (ctx)
     }
 
 
 
-    override fun getAllItens(): List<StarWarsItem> {
-        return ApiHelperImpl.getAllItens()
+    override fun getAllItens() {
+        ApiHelperImpl.getAllItens()
     }
 
     override fun save(transaction: Transaction) {
