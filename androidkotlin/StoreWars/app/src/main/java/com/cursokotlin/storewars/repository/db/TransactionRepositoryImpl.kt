@@ -11,16 +11,17 @@ import java.util.*
 class TransactionRepositoryImpl (ctx:Context) : TransactionRepository {
 
     var helper : TransactionSQLHelper
+    val date = Date()
     init {
         helper = TransactionSQLHelper(ctx)
     }
      fun insert(transaction: Transaction): Long {
         val db = helper.writableDatabase
         val cv = ContentValues()
-         val date = Date()
+
 
         cv.put(TransactionSQLHelper.COLUMN_OWNER_NAME, transaction.cardOwnerName)
-        cv.put(TransactionSQLHelper.COLUMN_CARD_LAST_NUMBERS, transaction.cardNumber)
+        cv.put(TransactionSQLHelper.COLUMN_CARD_LAST_NUMBERS, transaction.card_number)
         cv.put(TransactionSQLHelper.COLUMN_DATEANDTIME, date.time)
         cv.put(TransactionSQLHelper.COLUMN_VALUE, transaction.transactionValue)
 
@@ -35,8 +36,8 @@ class TransactionRepositoryImpl (ctx:Context) : TransactionRepository {
         val cv = ContentValues()
 
         cv.put(TransactionSQLHelper.COLUMN_OWNER_NAME, transaction.cardOwnerName)
-        cv.put(TransactionSQLHelper.COLUMN_CARD_LAST_NUMBERS, transaction.cardNumber)
-        cv.put(TransactionSQLHelper.COLUMN_DATEANDTIME, Calendar.getInstance().time as Long)
+        cv.put(TransactionSQLHelper.COLUMN_CARD_LAST_NUMBERS, transaction.card_number)
+        cv.put(TransactionSQLHelper.COLUMN_DATEANDTIME, date.time)
         cv.put(TransactionSQLHelper.COLUMN_VALUE, transaction.transactionValue)
 
         val changes = db.update(TransactionSQLHelper.TABLE_NAME,

@@ -3,8 +3,10 @@ package com.cursokotlin.storewars.repository
 import android.content.Context
 import com.cursokotlin.storewars.entity.StarWarsItem
 import com.cursokotlin.storewars.entity.Transaction
+import com.cursokotlin.storewars.entity.TransactionApi
 import com.cursokotlin.storewars.repository.db.TransactionRepository
 import com.cursokotlin.storewars.repository.db.TransactionRepositoryImpl
+import com.cursokotlin.storewars.repository.remote.ApiHelper
 import com.cursokotlin.storewars.repository.remote.ApiHelperImpl
 
 /**
@@ -15,16 +17,18 @@ class DataManagerImpl  : DataManager {
 
      var mDbHelper : TransactionRepository
      var mSharedPreferenceHelper : SharedPreferenceHelper
+     var mApiHelper : ApiHelper
 
     constructor(ctx:Context){
         mDbHelper = TransactionRepositoryImpl(ctx)
         mSharedPreferenceHelper = SharedPreferencesHelperImpl (ctx)
+        mApiHelper = ApiHelperImpl ()
     }
 
 
 
     override fun getAllItens() {
-        ApiHelperImpl.getAllItens()
+       mApiHelper.getAllItens()
     }
 
     override fun save(transaction: Transaction) {
@@ -45,5 +49,9 @@ class DataManagerImpl  : DataManager {
 
     override fun select(query: String?): MutableList<Transaction> {
         return mDbHelper.select(query)
+    }
+
+    override fun newTransaction(transaction: TransactionApi) {
+        mApiHelper.newTransaction(transaction)
     }
 }

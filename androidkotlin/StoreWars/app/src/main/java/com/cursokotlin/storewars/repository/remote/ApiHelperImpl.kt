@@ -1,18 +1,20 @@
 package com.cursokotlin.storewars.repository.remote
 
-import com.cursokotlin.storewars.repository.remote.RetrofitManager
-import com.cursokotlin.storewars.repository.remote.StoreWarsService
+import com.cursokotlin.storewars.entity.TransactionApi
+
 
 /**
  * Created by samila on 13/10/17.
  */
-class ApiHelperImpl {
-    companion object {
+class ApiHelperImpl : ApiHelper {
 
-        fun getAllItens(){
+    override fun getAllItens() {
+        val service : StoreWarsService = RetrofitManager.createStoreWarsService()
+        RetrofitManager.getAllItens(service)
+    }
 
-            val service : StoreWarsService = RetrofitManager.create()
-             RetrofitManager.getAllItens(service)
-        }
+    override fun newTransaction(transaction: TransactionApi) {
+        val service : TransactionService = RetrofitManager.createTransactionService()
+        RetrofitManager.newTransaction(service, transaction)
     }
 }

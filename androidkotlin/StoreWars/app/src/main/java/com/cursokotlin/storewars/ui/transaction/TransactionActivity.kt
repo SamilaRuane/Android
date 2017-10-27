@@ -8,6 +8,7 @@ import android.widget.Toast
 
 import com.cursokotlin.storewars.R
 import com.cursokotlin.storewars.entity.Transaction
+import com.cursokotlin.storewars.entity.TransactionApi
 import com.cursokotlin.storewars.ui.main.MainActivity
 import com.github.rtoshiro.util.format.SimpleMaskFormatter
 import com.github.rtoshiro.util.format.text.SimpleMaskTextWatcher
@@ -53,7 +54,6 @@ class TransactionActivity : AppCompatActivity(), View.OnClickListener, Transacti
             val total = intent.extras
             txt_total.text = total.getString("total")
 
-            val date : Date = Date ()
 
             if((edt_card_number.text.isEmpty()) ||
                     (edt_card_number.text.isEmpty()) ||
@@ -62,11 +62,18 @@ class TransactionActivity : AppCompatActivity(), View.OnClickListener, Transacti
                 Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }else {
 
-                transaction = Transaction(0, edt_card_number.text.toString(),
+                val date = Date ()
+                transaction = Transaction(date.time, edt_card_number.text.toString(),
                         edt_owner_name.text.toString(), edt_expiration_date.text.toString(),
                         Integer.parseInt(edt_CVV.text.toString()), total.getString("total").toDouble(), date.time)
 
+                val transactionApi = TransactionApi(edt_card_number.text.toString (),
+                        total.getString("total").toDouble(),
+                        edt_CVV.text.toString(),
+                        edt_owner_name.text.toString(),
+                        edt_expiration_date.text.toString())
                 mTransactionPresenter.save(transaction)
+                mTransactionPresenter.newTransactionToApi(transactionApi)
                 finish()
                 startActivity(Intent(this, MainActivity ::class.java))
             }

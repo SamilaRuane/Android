@@ -31,6 +31,11 @@ dependencies {
     compile 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    // RXJava
+    compile 'io.reactivex:rxjava:1.2.5'
+    // RXAndroid para termos acesso a main thread do Android
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile "com.squareup.retrofit2:adapter-rxjava:2.3.0"
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'

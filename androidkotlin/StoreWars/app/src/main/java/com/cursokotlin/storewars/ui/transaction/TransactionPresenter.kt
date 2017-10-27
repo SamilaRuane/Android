@@ -2,6 +2,7 @@ package com.cursokotlin.storewars.ui.transaction
 
 import android.content.Context
 import com.cursokotlin.storewars.entity.Transaction
+import com.cursokotlin.storewars.entity.TransactionApi
 import com.cursokotlin.storewars.repository.DataManager
 import com.cursokotlin.storewars.repository.DataManagerImpl
 
@@ -29,5 +30,9 @@ class TransactionPresenter : TransactionContract.Presenter{
 
     override fun getTransaction(id: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun newTransactionToApi(transaction: TransactionApi) {
+        mDataManager.newTransaction(transaction)
     }
 }

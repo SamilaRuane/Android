@@ -31,9 +31,9 @@ class TransactionAdapter : BaseAdapter{
 
         val simpleDateFormat = SimpleDateFormat ("dd/MM/yyyy")
         layout.txt_card_owner.text = t.cardOwnerName
-        layout.txt_card_number.text = t.cardNumber
+        layout.txt_card_number.text = t.card_number
         layout.txt_shopy_value.text = t.transactionValue.toString()
-        layout.txt_card_number.text = "**** **** **** ${t.cardNumber}"
+        layout.txt_card_number.text = "**** **** **** ${t.card_number}"
         layout.txt_transaction_date.text = simpleDateFormat.format(t.dateTime)
 
 
